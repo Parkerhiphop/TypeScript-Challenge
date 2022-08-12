@@ -1,5 +1,7 @@
-# 533 - Concat
->by Andrey Krasovsky (@bre30kra69cs) #easy #array
+# 533 - [Concat](https://github.com/type-challenges/type-challenges/blob/main/questions/00533-easy-concat/README.md)
+>by Andrey Krasovsky (@bre30kra69cs)
+
+#easy #array
   
 ## Question
   
@@ -10,10 +12,9 @@ For example:
 ```ts
 type Result = Concat<[1], [2]> // expected to be [1, 2]
 ```
+## Solution: Spread Operator and Conditional Types
 
-  - Share your solutions: https://tsch.js.org/533/answer
-  - View solutions: https://tsch.js.org/533/solutions
-  - More Challenges: https://tsch.js.org
-
-## Use Spread Operator and Extend Types
-- https://ghaiklor.github.io/type-challenges-solutions/en/easy-concat.html
+```ts
+type Concat<T extends unknown[], U extends unknown[]> = [...T, ...U];
+```
+- https://tsch.js.org/533/solutions

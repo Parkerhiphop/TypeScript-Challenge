@@ -1,5 +1,7 @@
-# 189 - Awaited
-> by Maciej Sikora (@maciejsikora) #easy #promise #built-in
+# 189 - [Awaited](https://github.com/type-challenges/type-challenges/blob/main/questions/00189-easy-awaited/README.md)
+> by Maciej Sikora (@maciejsikora)
+
+#easy #promise #built-in
   
 ## Question
   
@@ -13,18 +15,16 @@
   type Result = MyAwaited<ExampleType> // string
   ```
 
-  This question is ported from the [original article](https://dev.to/macsikora/advanced-typescript-exercises-question-1-45k4) by [@maciejsikora](https://github.com/maciejsikora)
-  
-  - Share your solutions: https://tsch.js.org/189/answer
-  - View solutions: https://tsch.js.org/189/solutions
-  - More Challenges: https://tsch.js.org
-
-[type-challenges/README.md at main · type-challenges/type-challenges · GitHub](https://github.com/type-challenges/type-challenges/blob/main/questions/00189-easy-awaited/README.md)
+> This question is ported from the [original article](https://dev.to/macsikora/advanced-typescript-exercises-question-1-45k4) by [@maciejsikora](https://github.com/maciejsikora)
 
 ---
 
-## Use Conditional Types , Infer & Recursive
+## Solution: Conditional Types , Infer & Recursive
+```ts
+type MyAwaited<T> = T extends Promise<infer R> ? MyAwaited<R> : T;
+```
 - https://ghaiklor.github.io/type-challenges-solutions/en/easy-awaited.html
+- https://tsch.js.org/189/solutions
 
 ### [Conditional Types](https://www.typescriptlang.org/docs/handbook/2/conditional-types.html)
 > 使用 extends 關鍵字的這個看起來像是三元運算子的寫法
