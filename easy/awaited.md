@@ -62,15 +62,18 @@ type MyAwaited<T> = T extends Promise<infer V> ? V : T
 
 ## Additional
  `ts-expect-error` 
-> 強制下一行的 TS 要 Compile 失敗
-```
+> 告訴 TS 下一行的 TS 會 Compile 失敗
+> 若下一行 Compile 成功，這邊會報錯
+> 在這邊被用來測試有沒有限縮好 generic 能丟的 type
+```ts
 type error = MyAwaited<number>
 ```
 - 在這邊用來嚴格規定 MyAwait 只能接受 Promise<T>
-	- 接收一般型別就要報錯
 - 若是 MyAwaited<number> 則不能通過
-- → 暫時性的 work around 可以用
-	- 當下一行的 ts error 被修好後，ts-expect-error 會報錯來提示你將這一行拔掉。
+  - 因為 expect-error 是本來就預期會不通過
+  - 所以 MyAwaited<number> 反而不會噴 ts-error
+- 實務上，用來當暫時性的 work around，而其特性可以在 work around 結束後，提醒我們過來修正
+	- 如何提醒？當下一行的 ts error 被修好後，ts-expect-error 會報錯來提示你將這一行拔掉。
 
 `ts-ignore` 
 > 忽略下一行的 TS Error
