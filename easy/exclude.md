@@ -19,7 +19,7 @@ type Result = MyExclude<'a' | 'b' | 'c', 'a'> // 'b' | 'c'
 
 ---
 
-## Solution 1: Conditional types in TypeScript are [distributive](https://www.typescriptlang.org/docs/handbook/2/conditional-types.html#distributive-conditional-types).
+## Solution: Conditional types in TypeScript are [distributive](https://www.typescriptlang.org/docs/handbook/2/conditional-types.html#distributive-conditional-types).
 
 ```ts
 type MyExclude<T, U> = T extends U ? never : T;
@@ -42,9 +42,3 @@ The distributive process would be:
 
 - Union Type
 - A type formed from two or more other types, representing values that may be any one of those types.
-
-## Solution 2: Just Use Exclude Type
-```ts
-type MyExclude<T, U> = Exclude<T, U>;
-```
-- https://www.typescriptlang.org/docs/handbook/utility-types.html#excludeuniontype-excludedmembers
