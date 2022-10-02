@@ -1,8 +1,6 @@
 # 4260 - AllCombinations
 > by 蛭子屋双六 (@sugoroku-y) #medium 
 
-Associated with [String To Union](string-to-union.md), [Exclude](../easy/exclude.md)
-
 ## Question
 
 Implement type ```AllCombinations<S>``` that return all combinations of strings which use characters from ```S``` at most once.
@@ -19,6 +17,8 @@ type AllCombinations_ABC = AllCombinations<'ABC'>;
 ---
 
 ## Solution
+Associated with [String To Union](string-to-union.md), [Exclude](../easy/exclude.md)
+
 ```ts
 type StringToUnion<S extends string> = S extends `${infer F}${infer L}`
   ? F | StringToUnion<L>
@@ -35,6 +35,7 @@ type AllCombinations<S extends string, U extends string = StringToUnion<S>> = [U
 ```ts
 type Test = AllCombinations<"AB">
 
+/* { [C in U]: `${C}${AllCombinations<never, Exclude<U, C>>}` }[U] */
 [A | B] -> { A: "A" + AllCombinations<never, 'B'>, B: "B" + AllCombinations<never, A> }[A | B]-> { A: "A" | "AB", B: "B" | "BA" }
 
 AllCombinations<never, 'B'> = "" | { B: "B" }[B] = B -> "" | "B"

@@ -1,8 +1,6 @@
 # 2793 - Mutable
 > by jiangshan (@jiangshanmeta) #medium #readonly #object-keys
 
-Associated with [Readonly](../easy/readonly.md)
-
 ## Question
 
 Implement the generic ```Mutable<T>``` which makes all properties in ```T``` mutable (not readonly).
@@ -51,6 +49,8 @@ type errors = [
 ---
 
 ## Solution
+Associated with [Readonly](../easy/readonly.md)
+
 ```ts
 type Mutable<T extends object | unknown[]> = { -readonly [ K in keyof T ]: T[K] }
 ```
