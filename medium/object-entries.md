@@ -22,7 +22,12 @@ type modelEntries = ObjectEntries<Model> // ['name', string] | ['age', number] |
 
 ## Solution
 ```ts
-
+type HandleUndefined<F, S extends keyof F> = F[S] extends infer R | undefined
+  ? R
+  : F[S];
+type ObjectEntries<T> = {
+  [P in keyof T]-?: [P, HandleUndefined<T, P>];
+}[keyof T];
 ```
 
 1. Use Mapped Types to iterate over each key in the object and reassign their value to `[key, typeof key]`.
