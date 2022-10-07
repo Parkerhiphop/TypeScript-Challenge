@@ -1,6 +1,8 @@
 # 3 - Omit
 > by Anthony Fu (@antfu) #medium #union #built-in
 
+TODO: Check the [TS：理解 Omit 的實作](https://pjchender.dev/ironman-2021/ironman-2021-day18/)
+
 ## Question
 
 Implement the built-in `Omit<T, K>` generic without using it.
