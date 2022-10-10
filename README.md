@@ -1,5 +1,6 @@
 # TypeScript-Challenge
 - TODO: Rename the repo to `My typescript learning record(notes and challenges)`.
+- TODO: 裝個 Astro 之類的東西可以直接轉成 Blog(?)
 
 Resources
 1. [Type Challenge](https://github.com/type-challenges/type-challenges)
