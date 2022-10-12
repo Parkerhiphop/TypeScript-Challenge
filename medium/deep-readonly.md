@@ -37,7 +37,7 @@ type Todo = DeepReadonly<X> // should be same as `Expected`
 2. definition of the recursive cases: the value T[k] is always define recursively.
 ```ts
 type DeepReadonly<T> = keyof T extends never
-  ? readonly T
+  ? T
   : { readonly [P in keyof T]: DeepReadonly<T[P]> }
 ```
 
